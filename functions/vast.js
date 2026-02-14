@@ -2,12 +2,13 @@ export async function onRequest(context) {
   const url = new URL(context.request.url);
   const contentId = url.searchParams.get("contentId") || "default";
 
-  // Default ad (house/sponsor)
-  let adUrl = "https://cdn.flamingelephantfilms.com/ads/sponsorA.mp4";
+  // TEMP (pipeline test): using a known-good Bunny MP4 URL
+  // Replace these with real 15s/30s ad MP4 URLs on Bunny when you upload them.
+  let adUrl = "https://vz-8de6b1d7-801.b-cdn.net/a87d9adf-e38f-46aa-9b3e-b7841da6ee25/play_720p.mp4";
 
-  // Example: film-specific sponsor
+  // Example: film-specific sponsor (same URL for now, swap later)
   if (contentId === "47b1e093-8335-45df-8e04-9d491ba4d70b") {
-    adUrl = "https://cdn.flamingelephantfilms.com/ads/merryMayhemSponsor.mp4";
+    adUrl = "https://vz-8de6b1d7-801.b-cdn.net/a87d9adf-e38f-46aa-9b3e-b7841da6ee25/play_720p.mp4";
   }
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
@@ -40,5 +41,3 @@ export async function onRequest(context) {
     }
   });
 }
-
-
