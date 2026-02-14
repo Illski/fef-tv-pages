@@ -1,0 +1,112 @@
+{
+  "version": "1",
+  "defaultLanguage": "en",
+  "defaultAvailabilityCountries": ["US"],
+  "assets": [
+    {
+      "id": "4097b3ee-0b95-429a-8832-0e3e67215768",
+      "type": "movie",
+      "titles": [{ "value": "Secret Lies & Alibis", "languages": ["en"] }],
+      "shortDescriptions": [{ "value": "Secret Lies & Alibis follows five women in a city of deceit.", "languages": ["en"] }],
+      "longDescriptions": [{ "value": "Secret Lies & Alibis follows five women in a city of deceit. As their lives intertwine, the power of lies, betrayal, and hidden truths emerge. Dive into a gripping drama of choices, relationships, and the cost of deception.", "languages": ["en"] }],
+      "releaseDate": "2026-01-01",
+      "genres": ["drama"],
+      "durationInSeconds": 2626,
+      "images": [
+        { "type": "main", "url": "https://vz-8de6b1d7-801.b-cdn.net/4097b3ee-0b95-429a-8832-0e3e67215768/thumbnail_87c1bd71.jpg", "languages": ["en"] },
+        { "type": "background", "url": "https://vz-8de6b1d7-801.b-cdn.net/4097b3ee-0b95-429a-8832-0e3e67215768/thumbnail_87c1bd71.jpg", "languages": ["en"] }
+      ],
+      "content": { "playOptions": [{ "license": "free", "quality": "HD", "playId": "4097b3ee-0b95-429a-8832-0e3e67215768" }] }
+    },
+    {
+      "id": "47b1e093-8335-45df-8e04-9d491ba4d70b",
+      "type": "movie",
+      "titles": [{ "value": "A Merry Mayhem", "languages": ["en"] }],
+      "shortDescriptions": [{ "value": "Guess who's coming home for the holidays.", "languages": ["en"] }],
+      "longDescriptions": [{ "value": "Guess who's coming home for the holidays. When Sean Black gets an unexpected visit from an old friend days before Christmas, he gets more than he bargained for. Full of Christmas cheer and good tidings, this movie will surely make the feel-good playlist.", "languages": ["en"] }],
+      "releaseDate": "2026-01-01",
+      "genres": ["drama", "comedy", "holiday"],
+      "durationInSeconds": 3325,
+      "images": [
+        { "type": "main", "url": "https://vz-8de6b1d7-801.b-cdn.net/47b1e093-8335-45df-8e04-9d491ba4d70b/thumbnail_6441f616.jpg", "languages": ["en"] },
+        { "type": "background", "url": "https://vz-8de6b1d7-801.b-cdn.net/47b1e093-8335-45df-8e04-9d491ba4d70b/thumbnail_6441f616.jpg", "languages": ["en"] }
+      ],
+      "content": { "playOptions": [{ "license": "free", "quality": "HD", "playId": "47b1e093-8335-45df-8e04-9d491ba4d70b" }] }
+    },
+    {
+      "id": "04f90b5f-01ba-4c77-9a49-7743772b4a38",
+      "type": "movie",
+      "titles": [{ "value": "Court Comeback", "languages": ["en"] }],
+      "shortDescriptions": [{ "value": "A heartfelt coming-of-age sports drama about a 12-year-old boy who finds hope and purpose on the court.", "languages": ["en"] }],
+      "longDescriptions": [{ "value": "Court Comeback is a heartfelt coming-of-age sports drama about a 12-year-old African American boy who finds hope and purpose on the basketball court after tragedy strikes his family. Still grieving the loss of his mother, he struggles at home with a depressed father, leans on his older brother for guidance, and lives under the care of his aunt. At school, he’s relentlessly chased and bullied by two boys. Through discipline, resilience, and a deep love for the game, he pushes forward toward a climactic tournament and discovers the power of forgiveness and understanding.", "languages": ["en"] }],
+      "releaseDate": "2026-01-01",
+      "genres": ["drama", "sports"],
+      "durationInSeconds": 4390,
+      "images": [
+        { "type": "main", "url": "https://vz-8de6b1d7-801.b-cdn.net/04f90b5f-01ba-4c77-9a49-7743772b4a38/thumbnail_8839bc97.jpg", "languages": ["en"] },
+        { "type": "background", "url": "https://vz-8de6b1d7-801.b-cdn.net/04f90b5f-01ba-4c77-9a49-7743772b4a38/thumbnail_8839bc97.jpg", "languages": ["en"] }
+      ],
+      "content": { "playOptions": [{ "license": "free", "quality": "HD", "playId": "04f90b5f-01ba-4c77-9a49-7743772b4a38" }] }
+    },
+    {
+      "id": "f3c7a6bb-b213-4b82-b39a-c6b3f159b391",
+      "type": "movie",
+      "titles": [{ "value": "A Perceiv'd Holiday", "languages": ["en"] }],
+      "shortDescriptions": [{ "value": "Three families accidentally book the same Airbnb and discover Christmas magic through unity.", "languages": ["en"] }],
+      "longDescriptions": [{ "value": "A heartwarming tale begins as the Parkers accidentally book the same Airbnb as two other families. Amidst the unexpected chaos, they realize that the true Christmas magic lies in unity and embracing the holiday spirit.", "languages": ["en"] }],
+      "releaseDate": "2026-01-01",
+      "genres": ["holiday", "family"],
+      "durationInSeconds": 1716,
+      "images": [
+        { "type": "main", "url": "https://vz-8de6b1d7-801.b-cdn.net/f3c7a6bb-b213-4b82-b39a-c6b3f159b391/thumbnail_28593cf5.jpg", "languages": ["en"] },
+        { "type": "background", "url": "https://vz-8de6b1d7-801.b-cdn.net/f3c7a6bb-b213-4b82-b39a-c6b3f159b391/thumbnail_28593cf5.jpg", "languages": ["en"] }
+      ],
+      "content": { "playOptions": [{ "license": "free", "quality": "HD", "playId": "f3c7a6bb-b213-4b82-b39a-c6b3f159b391" }] }
+    },
+    {
+      "id": "4f877e25-ae34-4a01-87b5-a5074d910faf",
+      "type": "movie",
+      "titles": [{ "value": "Not Looking for Love", "languages": ["en"] }],
+      "shortDescriptions": [{ "value": "Two people swear off love—until sparks fly and jealousy threatens a second chance.", "languages": ["en"] }],
+      "longDescriptions": [{ "value": "After a bad breakup, David swears off love. Single mom Linda, tired of bad dates, does the same. Hired to clean David’s house, sparks fly, restoring hope—until David sees Linda with another man. Heartbroken again, will they take a second chance on love?", "languages": ["en"] }],
+      "releaseDate": "2026-01-01",
+      "genres": ["romance", "comedy"],
+      "durationInSeconds": 4885,
+      "images": [
+        { "type": "main", "url": "https://vz-8de6b1d7-801.b-cdn.net/4f877e25-ae34-4a01-87b5-a5074d910faf/thumbnail_0f847d9b.jpg", "languages": ["en"] },
+        { "type": "background", "url": "https://vz-8de6b1d7-801.b-cdn.net/4f877e25-ae34-4a01-87b5-a5074d910faf/thumbnail_0f847d9b.jpg", "languages": ["en"] }
+      ],
+      "content": { "playOptions": [{ "license": "free", "quality": "HD", "playId": "4f877e25-ae34-4a01-87b5-a5074d910faf" }] }
+    },
+    {
+      "id": "4db940d8-f88f-4d55-917a-a79ae9b33016",
+      "type": "movie",
+      "titles": [{ "value": "HEEL'D", "languages": ["en"] }],
+      "shortDescriptions": [{ "value": "A drama exploring religious prejudice and domestic violence as Angela fights to escape the cycle.", "languages": ["en"] }],
+      "longDescriptions": [{ "value": "HEEL'D courageously delves into the darkest corners of humanity, exploring the painful consequences of religious prejudice and domestic violence. Can Angela escape the circle of violence and destruction?", "languages": ["en"] }],
+      "releaseDate": "2026-01-01",
+      "genres": ["drama"],
+      "durationInSeconds": 4334,
+      "images": [
+        { "type": "main", "url": "https://vz-8de6b1d7-801.b-cdn.net/4db940d8-f88f-4d55-917a-a79ae9b33016/thumbnail_5890a494.jpg", "languages": ["en"] },
+        { "type": "background", "url": "https://vz-8de6b1d7-801.b-cdn.net/4db940d8-f88f-4d55-917a-a79ae9b33016/thumbnail_5890a494.jpg", "languages": ["en"] }
+      ],
+      "content": { "playOptions": [{ "license": "free", "quality": "HD", "playId": "4db940d8-f88f-4d55-917a-a79ae9b33016" }] }
+    },
+    {
+      "id": "a9448033-4f55-4c27-85d7-533dc30c1e2a",
+      "type": "movie",
+      "titles": [{ "value": "The Measure of a Man", "languages": ["en"] }],
+      "shortDescriptions": [{ "value": "A principled man is tested by family pressure and expectations as he learns what it means to lead.", "languages": ["en"] }],
+      "longDescriptions": [{ "value": "The Measure of a Man follows a quiet, principled man whose sense of responsibility is tested as family pressures and personal expectations force him to confront what it truly means to lead by example.", "languages": ["en"] }],
+      "releaseDate": "2026-01-01",
+      "genres": ["drama"],
+      "durationInSeconds": 6684,
+      "images": [
+        { "type": "main", "url": "https://vz-8de6b1d7-801.b-cdn.net/a9448033-4f55-4c27-85d7-533dc30c1e2a/thumbnail_c95d9dc2.jpg", "languages": ["en"] },
+        { "type": "background", "url": "https://vz-8de6b1d7-801.b-cdn.net/a9448033-4f55-4c27-85d7-533dc30c1e2a/thumbnail_c95d9dc2.jpg", "languages": ["en"] }
+      ],
+      "content": { "playOptions": [{ "license": "free", "quality": "HD", "playId": "a9448033-4f55-4c27-85d7-533dc30c1e2a" }] }
+    }
+  ]
+}

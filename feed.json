@@ -1,0 +1,201 @@
+{
+  "provider": {
+    "name": "Flaming Elephant Films",
+    "description": "Independent Stories. Fearless Cinema.",
+    "language": "en-US"
+  },
+  "lastUpdated": "2026-01-30T00:00:00Z",
+  "categories": [
+    {
+      "name": "Featured",
+      "query": {
+        "sort": "manual",
+        "ids": [
+          "4097b3ee-0b95-429a-8832-0e3e67215768",
+          "47b1e093-8335-45df-8e04-9d491ba4d70b",
+          "04f90b5f-01ba-4c77-9a49-7743772b4a38",
+          "f3c7a6bb-b213-4b82-b39a-c6b3f159b391",
+          "4f877e25-ae34-4a01-87b5-a5074d910faf",
+          "4db940d8-f88f-4d55-917a-a79ae9b33016",
+          "a9448033-4f55-4c27-85d7-533dc30c1e2a"
+        ]
+      }
+    },
+    {
+      "name": "Drama",
+      "query": {
+        "genre": "Drama"
+      }
+    },
+    {
+      "name": "Holiday",
+      "query": {
+        "genre": "Holiday"
+      }
+    },
+    {
+      "name": "Romance & Comedy",
+      "query": {
+        "genresAny": [
+          "Romance",
+          "Comedy"
+        ]
+      }
+    }
+  ],
+  "movies": [
+    {
+      "id": "4097b3ee-0b95-429a-8832-0e3e67215768",
+      "title": "Secret Lies & Alibis",
+      "shortDescription": "Secret Lies & Alibis follows five women in a city of deceit. As their lives intertwine, the power of lies, betrayal, and hidden truths emerge. Dive into a gripping drama of choices",
+      "longDescription": "Secret Lies & Alibis follows five women in a city of deceit. As their lives intertwine, the power of lies, betrayal, and hidden truths emerge. Dive into a gripping drama of choices, relationships, and the cost of deception.",
+      "genres": [
+        "Drama"
+      ],
+      "runtimeSeconds": 2626,
+      "releaseDate": "2026-01-01",
+      "thumbnail": "https://vz-8de6b1d7-801.b-cdn.net/4097b3ee-0b95-429a-8832-0e3e67215768/thumbnail_87c1bd71.jpg", 
+      "poster": "https://vz-8de6b1d7-801.b-cdn.net/4097b3ee-0b95-429a-8832-0e3e67215768/thumbnail_87c1bd71.jpg",
+      "background": "https://vz-8de6b1d7-801.b-cdn.net/4097b3ee-0b95-429a-8832-0e3e67215768/thumbnail_87c1bd71.jpg",
+      "streams": [
+        {
+          "url": "https://vz-8de6b1d7-801.b-cdn.net/4097b3ee-0b95-429a-8832-0e3e67215768/play_720p.mp4",
+          "quality": "auto",
+          "streamFormat": "mp4"
+        }
+      ]
+    },
+    {
+      "id": "47b1e093-8335-45df-8e04-9d491ba4d70b",
+      "title": "A Merry Mayhem",
+      "shortDescription": "Guess who's coming home for the holidays. When Sean Black gets an unexpected visit from an old friend days before Christmas, he gets more than he bargained for. Full of Christmas c",
+      "longDescription": "Guess who's coming home for the holidays. When Sean Black gets an unexpected visit from an old friend days before Christmas, he gets more than he bargained for. Full of Christmas cheer and good tidings, this movie will surely make the feel-good playlist.",
+      "genres": [
+        "Drama",
+        "Comedy",
+        "Holiday"
+      ],
+      "runtimeSeconds": 3325,
+      "releaseDate": "2026-01-01",
+      "thumbnail": "https://vz-8de6b1d7-801.b-cdn.net/47b1e093-8335-45df-8e04-9d491ba4d70b/thumbnail_6441f616.jpg",
+      "poster": "https://vz-8de6b1d7-801.b-cdn.net/47b1e093-8335-45df-8e04-9d491ba4d70b/thumbnail_6441f616.jpg",
+      "background": "https://vz-8de6b1d7-801.b-cdn.net/47b1e093-8335-45df-8e04-9d491ba4d70b/thumbnail_6441f616.jpg",
+      "streams": [
+        {
+          "url": "https://vz-8de6b1d7-801.b-cdn.net/47b1e093-8335-45df-8e04-9d491ba4d70b/play_720p.mp4",
+          "quality": "auto",
+          "streamFormat": "mp4"
+        }
+      ]
+    },
+    {
+      "id": "04f90b5f-01ba-4c77-9a49-7743772b4a38",
+      "title": "Court Comeback",
+      "shortDescription": "Court Comeback is a heartfelt coming-of-age sports drama about a 12-year-old African American boy who finds hope and purpose on the basketball court after tragedy strikes his famil",
+      "longDescription": "Court Comeback is a heartfelt coming-of-age sports drama about a 12-year-old African American boy who finds hope and purpose on the basketball court after tragedy strikes his family. Still grieving the loss of his mother, he struggles at home with a depressed father, leans on his older brother for guidance, and lives under the care of his aunt. At school, he’s relentlessly chased and bullied by two boys who seem determined to break his spirit. But through discipline, resilience, and a deep love for the game, he pushes forward—training harder, believing in himself, and refusing to quit. As the season builds toward a climactic tournament, he not only leads his team to victory but discovers the power of forgiveness and understanding, ultimately turning his bullies into allies. A story about grief, grit, brotherhood, and how basketball becomes the bridge from pain.",
+      "genres": [
+        "Drama",
+        "Inspiration",
+        "Sports"
+      ],
+      "runtimeSeconds": 4390,
+      "releaseDate": "2026-01-01",
+      "thumbnail": "https://vz-8de6b1d7-801.b-cdn.net/04f90b5f-01ba-4c77-9a49-7743772b4a38/thumbnail_8839bc97.jpg",
+      "poster": "https://vz-8de6b1d7-801.b-cdn.net/04f90b5f-01ba-4c77-9a49-7743772b4a38/thumbnail_8839bc97.jpg",
+      "background": "https://vz-8de6b1d7-801.b-cdn.net/04f90b5f-01ba-4c77-9a49-7743772b4a38/thumbnail_8839bc97.jpg",
+      "streams": [
+        {
+          "url": "https://vz-8de6b1d7-801.b-cdn.net/04f90b5f-01ba-4c77-9a49-7743772b4a38/play_720p.mp4",
+          "quality": "auto",
+          "streamFormat": "mp4"
+        }
+      ]
+    },
+    {
+      "id": "f3c7a6bb-b213-4b82-b39a-c6b3f159b391",
+      "title": "A Perceiv'd Holiday",
+      "shortDescription": "A heartwarming tale begins as the Parkers accidentally book the same Airbnb as two other families. Amidst the unexpected chaos, they realize that the true Christmas magic lies in u",
+      "longDescription": "A heartwarming tale begins as the Parkers accidentally book the same Airbnb as two other families. Amidst the unexpected chaos, they realize that the true Christmas magic lies in unity and embracing the holiday spirit.",
+      "genres": [
+        "Holiday",
+        "Family"
+      ],
+      "runtimeSeconds": 1716,
+      "releaseDate": "2026-01-01",
+      "thumbnail": "https://vz-8de6b1d7-801.b-cdn.net/f3c7a6bb-b213-4b82-b39a-c6b3f159b391/thumbnail_28593cf5.jpg",
+      "poster": "https://vz-8de6b1d7-801.b-cdn.net/f3c7a6bb-b213-4b82-b39a-c6b3f159b391/thumbnail_28593cf5.jpg",
+      "background": "https://vz-8de6b1d7-801.b-cdn.net/f3c7a6bb-b213-4b82-b39a-c6b3f159b391/thumbnail_28593cf5.jpg",
+      "streams": [
+        {
+          "url": "https://vz-8de6b1d7-801.b-cdn.net/f3c7a6bb-b213-4b82-b39a-c6b3f159b391/play_720p.mp4",
+          "quality": "auto",
+          "streamFormat": "mp4"
+        }
+      ]
+    },
+    {
+      "id": "4f877e25-ae34-4a01-87b5-a5074d910faf",
+      "title": "Not Looking for Love",
+      "shortDescription": "After a bad breakup, David swears off love. Single mom Linda, tired of bad dates, does the same. Hired to clean David’s house, sparks fly, restoring hope—until David sees Linda wit",
+      "longDescription": "After a bad breakup, David swears off love. Single mom Linda, tired of bad dates, does the same. Hired to clean David’s house, sparks fly, restoring hope—until David sees Linda with another man. Heartbroken again, will they take a second chance on love?",
+      "genres": [
+        "Romance",
+        "Comedy"
+      ],
+      "runtimeSeconds": 4885,
+      "releaseDate": "2026-01-01",
+      "thumbnail": "https://vz-8de6b1d7-801.b-cdn.net/4f877e25-ae34-4a01-87b5-a5074d910faf/thumbnail_0f847d9b.jpg",
+      "poster": "https://vz-8de6b1d7-801.b-cdn.net/4f877e25-ae34-4a01-87b5-a5074d910faf/thumbnail_0f847d9b.jpg",
+      "background": "https://vz-8de6b1d7-801.b-cdn.net/4f877e25-ae34-4a01-87b5-a5074d910faf/thumbnail_0f847d9b.jpg",
+      "streams": [
+        {
+          "url": "https://vz-8de6b1d7-801.b-cdn.net/4f877e25-ae34-4a01-87b5-a5074d910faf/play_720p.mp4",
+          "quality": "auto",
+          "streamFormat": "mp4"
+        }
+      ]
+    },
+    {
+      "id": "4db940d8-f88f-4d55-917a-a79ae9b33016",
+      "title": "HEEL'D",
+      "shortDescription": "HEEL'D courageously delves into the darkest corners of humanity, exploring the painful consequences of religious prejudice and domestic violence. Can Angela escape the circle of vi",
+      "longDescription": "HEEL'D courageously delves into the darkest corners of humanity, exploring the painful consequences of religious prejudice and domestic violence. Can Angela escape the circle of violence and destruction?",
+      "genres": [
+        "Drama"
+      ],
+      "runtimeSeconds": 4334,
+      "releaseDate": "2026-01-01",
+      "thumbnail": "https://vz-8de6b1d7-801.b-cdn.net/4db940d8-f88f-4d55-917a-a79ae9b33016/thumbnail_5890a494.jpg",
+      "poster": "https://vz-8de6b1d7-801.b-cdn.net/4db940d8-f88f-4d55-917a-a79ae9b33016/thumbnail_5890a494.jpg",
+      "background": "https://vz-8de6b1d7-801.b-cdn.net/4db940d8-f88f-4d55-917a-a79ae9b33016/thumbnail_5890a494.jpg",
+      "streams": [
+        {
+          "url": "https://vz-8de6b1d7-801.b-cdn.net/4db940d8-f88f-4d55-917a-a79ae9b33016/play_720p.mp4",
+          "quality": "auto",
+          "streamFormat": "mp4"
+        }
+      ]
+    },
+    {
+      "id": "a9448033-4f55-4c27-85d7-533dc30c1e2a",
+      "title": "The Measure of a Man",
+      "shortDescription": "The Measure of a Man follows a quiet, principled man whose sense of responsibility is tested as family pressures and personal expectations force him to confront what it truly means",
+      "longDescription": "The Measure of a Man follows a quiet, principled man whose sense of responsibility is tested as family pressures and personal expectations force him to confront what it truly means to lead by example.",
+      "genres": [
+        "Drama"
+      ],
+      "runtimeSeconds": 6684,
+      "releaseDate": "2026-01-01",
+      "thumbnail": "https://vz-8de6b1d7-801.b-cdn.net/a9448033-4f55-4c27-85d7-533dc30c1e2a/thumbnail_c95d9dc2.jpg",
+      "poster": "https://vz-8de6b1d7-801.b-cdn.net/a9448033-4f55-4c27-85d7-533dc30c1e2a/thumbnail_c95d9dc2.jpg",
+      "background": "https://vz-8de6b1d7-801.b-cdn.net/a9448033-4f55-4c27-85d7-533dc30c1e2a/thumbnail_c95d9dc2.jpg",
+      "streams": [
+        {
+          "url": "https://vz-8de6b1d7-801.b-cdn.net/a9448033-4f55-4c27-85d7-533dc30c1e2a/play_720p.mp4",
+          "quality": "auto",
+          "streamFormat": "mp4"
+        }
+      ]
+    }
+  ]
+}
