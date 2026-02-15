@@ -60,9 +60,9 @@
       "background": "https://vz-8de6b1d7-801.b-cdn.net/4097b3ee-0b95-429a-8832-0e3e67215768/thumbnail_87c1bd71.jpg",
       "streams": [
         {
-          "url": "https://vz-8de6b1d7-801.b-cdn.net/4097b3ee-0b95-429a-8832-0e3e67215768/play_720p.mp4",
+          "url": "https://vz-8de6b1d7-801.b-cdn.net/4097b3ee-0b95-429a-8832-0e3e67215768/playlist.m3u8",
           "quality": "auto",
-          "streamFormat": "mp4"
+          "streamFormat": "hls"
         }
       ]
     },
@@ -83,9 +83,9 @@
       "background": "https://vz-8de6b1d7-801.b-cdn.net/47b1e093-8335-45df-8e04-9d491ba4d70b/thumbnail_6441f616.jpg",
       "streams": [
         {
-          "url": "https://vz-8de6b1d7-801.b-cdn.net/47b1e093-8335-45df-8e04-9d491ba4d70b/play_720p.mp4",
+          "url": "https://vz-8de6b1d7-801.b-cdn.net/47b1e093-8335-45df-8e04-9d491ba4d70b/playlist.m3u8",
           "quality": "auto",
-          "streamFormat": "mp4"
+          "streamFormat": "hls"
         }
       ]
     },
@@ -106,9 +106,9 @@
       "background": "https://vz-8de6b1d7-801.b-cdn.net/04f90b5f-01ba-4c77-9a49-7743772b4a38/thumbnail_8839bc97.jpg",
       "streams": [
         {
-          "url": "https://vz-8de6b1d7-801.b-cdn.net/04f90b5f-01ba-4c77-9a49-7743772b4a38/play_720p.mp4",
+          "url": "https://vz-8de6b1d7-801.b-cdn.net/04f90b5f-01ba-4c77-9a49-7743772b4a38/playlist.m3u8",
           "quality": "auto",
-          "streamFormat": "mp4"
+          "streamFormat": "hls"
         }
       ]
     },
@@ -128,9 +128,9 @@
       "background": "https://vz-8de6b1d7-801.b-cdn.net/f3c7a6bb-b213-4b82-b39a-c6b3f159b391/thumbnail_28593cf5.jpg",
       "streams": [
         {
-          "url": "https://vz-8de6b1d7-801.b-cdn.net/f3c7a6bb-b213-4b82-b39a-c6b3f159b391/play_720p.mp4",
+          "url": "https://vz-8de6b1d7-801.b-cdn.net/f3c7a6bb-b213-4b82-b39a-c6b3f159b391/playlist.m3u8",
           "quality": "auto",
-          "streamFormat": "mp4"
+          "streamFormat": "hls"
         }
       ]
     },
@@ -150,9 +150,9 @@
       "background": "https://vz-8de6b1d7-801.b-cdn.net/4f877e25-ae34-4a01-87b5-a5074d910faf/thumbnail_0f847d9b.jpg",
       "streams": [
         {
-          "url": "https://vz-8de6b1d7-801.b-cdn.net/4f877e25-ae34-4a01-87b5-a5074d910faf/play_720p.mp4",
+          "url": "https://vz-8de6b1d7-801.b-cdn.net/4f877e25-ae34-4a01-87b5-a5074d910faf/playlist.m3u8",
           "quality": "auto",
-          "streamFormat": "mp4"
+          "streamFormat": "hls"
         }
       ]
     },
@@ -171,9 +171,9 @@
       "background": "https://vz-8de6b1d7-801.b-cdn.net/4db940d8-f88f-4d55-917a-a79ae9b33016/thumbnail_5890a494.jpg",
       "streams": [
         {
-          "url": "https://vz-8de6b1d7-801.b-cdn.net/4db940d8-f88f-4d55-917a-a79ae9b33016/play_720p.mp4",
+          "url": "https://vz-8de6b1d7-801.b-cdn.net/4db940d8-f88f-4d55-917a-a79ae9b33016/playlist.m3u8",
           "quality": "auto",
-          "streamFormat": "mp4"
+          "streamFormat": "hls"
         }
       ]
     },
@@ -192,9 +192,9 @@
       "background": "https://vz-8de6b1d7-801.b-cdn.net/5f484287-b3f1-4da1-826f-06af97782530/thumbnail_247853c6.jpg",
       "streams": [
         {
-          "url": "https://vz-8de6b1d7-801.b-cdn.net/5f484287-b3f1-4da1-826f-06af97782530/play_720p.mp4",
+          "url": "https://vz-8de6b1d7-801.b-cdn.net/5f484287-b3f1-4da1-826f-06af97782530/playlist.m3u8",
           "quality": "auto",
-          "streamFormat": "mp4"
+          "streamFormat": "hls"
         }
       ]
     }
