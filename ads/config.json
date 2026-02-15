@@ -7,7 +7,7 @@
   "houseAds": [
     {
       "id": "house-1",
-      "url": "https://vz-8de6b1d7-801.b-cdn.net/a87d9adf-e38f-46aa-9b3e-b7841da6ee25/play_720p.mp4",
+      "url": "https://vz-8de6b1d7-801.b-cdn.net/79fb77cc-a3ae-4af0-9060-2797625b1969/playlist.m3u8",
       "durationSeconds": 15
     }
   ],
@@ -18,7 +18,7 @@
       "priority": 100,
       "start": "2026-01-01",
       "end": "2026-12-31",
-      "url": "https://vz-8de6b1d7-801.b-cdn.net/a87d9adf-e38f-46aa-9b3e-b7841da6ee25/play_720p.mp4",
+      "url": "https://vz-8de6b1d7-801.b-cdn.net/a87d9adf-e38f-46aa-9b3e-b7841da6ee25/playlist.m3u8",
       "durationSeconds": 15
     }
   ],
@@ -30,7 +30,7 @@
         "priority": 200,
         "start": "2026-01-01",
         "end": "2026-12-31",
-        "url": "https://vz-8de6b1d7-801.b-cdn.net/a87d9adf-e38f-46aa-9b3e-b7841da6ee25/play_720p.mp4",
+        "url": "https://vz-8de6b1d7-801.b-cdn.net/a87d9adf-e38f-46aa-9b3e-b7841da6ee25/playlist.m3u8",
         "durationSeconds": 15
       }
     ]
