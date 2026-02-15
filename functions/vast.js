@@ -4,10 +4,9 @@ export async function onRequest(context) {
   const contentId = reqUrl.searchParams.get("contentId") || "default";
   const rida = reqUrl.searchParams.get("rida") || "anon";
 
-  // Load config.json from your Pages site (same project)
+  // Load config.json from same Pages site
   const configUrl = new URL("/ads/config.json", reqUrl.origin);
   const cfgRes = await fetch(configUrl.toString(), {
-    // keep it simple; no caching tricks yet
     headers: { "Cache-Control": "no-cache" }
   });
 
@@ -15,7 +14,6 @@ export async function onRequest(context) {
   try {
     cfg = await cfgRes.json();
   } catch (e) {
-    // If config fails, fail-open to house-style fallback
     cfg = null;
   }
 
@@ -28,33 +26,33 @@ export async function onRequest(context) {
     return start <= today && today <= end;
   }
 
+  // Deterministic hash 0..99 (so "rotation" is stable per device per 10-min bucket)
+  function hashPercent(seedStr) {
+    const bucket = Math.floor(Date.now() / (10 * 60 * 1000)); // 10 min
+    const seed = `${seedStr}|${bucket}`;
+    let h = 0;
+    for (let i = 0; i < seed.length; i++) h = (h * 31 + seed.charCodeAt(i)) >>> 0;
+    return h % 100;
+  }
+
   function pickRotation(list, seedStr) {
     if (!Array.isArray(list) || list.length === 0) return null;
-
-    // Deterministic rotation per device per 10-minute bucket (no server state)
-    const bucket = Math.floor(Date.now() / (10 * 60 * 1000)); // 10 min
+    const bucket = Math.floor(Date.now() / (10 * 60 * 1000));
     const seed = `${seedStr}|${bucket}|${list.length}`;
-
     let h = 0;
-    for (let i = 0; i < seed.length; i++) {
-      h = (h * 31 + seed.charCodeAt(i)) >>> 0;
-    }
-    const idx = h % list.length;
-    return list[idx];
+    for (let i = 0; i < seed.length; i++) h = (h * 31 + seed.charCodeAt(i)) >>> 0;
+    return list[h % list.length];
   }
 
   function pickHighestPriority(activeList, seedStr) {
     if (!Array.isArray(activeList) || activeList.length === 0) return null;
-
-    // Sort by priority desc, then rotate among same-priority
     const sorted = [...activeList].sort((a, b) => (b.priority || 0) - (a.priority || 0));
     const topPri = sorted[0].priority || 0;
     const top = sorted.filter(x => (x.priority || 0) === topPri);
-
     return pickRotation(top, seedStr) || top[0];
   }
 
-  // 1) Film-specific sponsor override (if present + active)
+  // 1) Film-specific sponsor override (if present + active) ALWAYS wins
   let chosen = null;
   const filmList = cfg?.filmSponsors?.[contentId];
   if (Array.isArray(filmList)) {
@@ -62,26 +60,32 @@ export async function onRequest(context) {
     chosen = pickHighestPriority(activeFilm, `film|${contentId}|${rida}`);
   }
 
-  // 2) Global sponsor ads (active + priority)
+  // 2) Otherwise: MIX sponsor vs house using sponsorFillPercent
   if (!chosen) {
     const activeSponsors = (cfg?.sponsorAds || []).filter(isActive);
-    chosen = pickHighestPriority(activeSponsors, `sponsor|${contentId}|${rida}`);
+    const houseAds = (cfg?.houseAds || []).filter(isActive);
+
+    const sponsorFill = cfg?.defaults?.sponsorFillPercent ?? 100; // default 100% sponsor
+    const p = hashPercent(`mix|${contentId}|${rida}`);
+
+    const shouldUseSponsor = (activeSponsors.length > 0) && (p < sponsorFill);
+
+    if (shouldUseSponsor) {
+      chosen = pickHighestPriority(activeSponsors, `sponsor|${contentId}|${rida}`);
+    } else if (houseAds.length > 0) {
+      chosen = pickRotation(houseAds, `house|${contentId}|${rida}`);
+    } else if (activeSponsors.length > 0) {
+      // if house is empty, fall back to sponsor
+      chosen = pickHighestPriority(activeSponsors, `sponsor|${contentId}|${rida}`);
+    }
   }
 
-  // 3) House ads rotation fallback
-  if (!chosen) {
-    chosen = pickRotation(cfg?.houseAds || [], `house|${contentId}|${rida}`);
-  }
-
-  // Absolute fail-open: if no config or no ads, return empty VAST (Roku will just play content)
+  // Absolute fail-open: return empty VAST (Roku plays content)
   if (!chosen || !chosen.url) {
     const empty = `<?xml version="1.0" encoding="UTF-8"?>
 <VAST version="3.0"></VAST>`;
     return new Response(empty, {
-      headers: {
-        "Content-Type": "application/xml; charset=UTF-8",
-        "Cache-Control": "no-store"
-      }
+      headers: { "Content-Type": "application/xml; charset=UTF-8", "Cache-Control": "no-store" }
     });
   }
 
@@ -114,9 +118,6 @@ export async function onRequest(context) {
 </VAST>`;
 
   return new Response(xml, {
-    headers: {
-      "Content-Type": "application/xml; charset=UTF-8",
-      "Cache-Control": "no-store"
-    }
+    headers: { "Content-Type": "application/xml; charset=UTF-8", "Cache-Control": "no-store" }
   });
 }
