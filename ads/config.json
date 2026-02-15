@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "defaults": {
+    "durationSeconds": 15
+  },
+
+  "houseAds": [
+    {
+      "id": "house-1",
+      "url": "https://vz-8de6b1d7-801.b-cdn.net/a87d9adf-e38f-46aa-9b3e-b7841da6ee25/play_720p.mp4",
+      "durationSeconds": 15
+    }
+  ],
+
+  "sponsorAds": [
+    {
+      "id": "sponsor-1",
+      "priority": 100,
+      "start": "2026-01-01",
+      "end": "2026-12-31",
+      "url": "https://vz-8de6b1d7-801.b-cdn.net/a87d9adf-e38f-46aa-9b3e-b7841da6ee25/play_720p.mp4",
+      "durationSeconds": 15
+    }
+  ],
+
+  "filmSponsors": {
+    "47b1e093-8335-45df-8e04-9d491ba4d70b": [
+      {
+        "id": "merry-mayhem-sponsor",
+        "priority": 200,
+        "start": "2026-01-01",
+        "end": "2026-12-31",
+        "url": "https://vz-8de6b1d7-801.b-cdn.net/a87d9adf-e38f-46aa-9b3e-b7841da6ee25/play_720p.mp4",
+        "durationSeconds": 15
+      }
+    ]
+  }
+}
