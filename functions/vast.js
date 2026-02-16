@@ -6,19 +6,17 @@ export async function onRequest(context) {
 
   // Load config.json from your Pages site
   const configUrl = new URL("/ads/config.json", reqUrl.origin);
-  const cfgRes = await fetch(configUrl.toString(), {
-    headers: { "Cache-Control": "no-cache" }
-  });
-
   let cfg = null;
   try {
+    const cfgRes = await fetch(configUrl.toString(), {
+      headers: { "Cache-Control": "no-cache" }
+    });
     cfg = await cfgRes.json();
   } catch (e) {
     cfg = null;
   }
 
-  const now = new Date();
-  const today = now.toISOString().slice(0, 10); // YYYY-MM-DD
+  const today = new Date().toISOString().slice(0, 10); // YYYY-MM-DD
 
   function isActive(ad) {
     const start = ad.start || "1900-01-01";
@@ -26,68 +24,62 @@ export async function onRequest(context) {
     return start <= today && today <= end;
   }
 
-  // Deterministic rotation per device per 10-minute bucket
-  function pickRotation(list, seedStr) {
-    if (!Array.isArray(list) || list.length === 0) return null;
-
-    const bucket = Math.floor(Date.now() / (10 * 60 * 1000)); // 10 minutes
-    const seed = `${seedStr}|${bucket}|${list.length}`;
-
+  function hash32(str) {
     let h = 0;
-    for (let i = 0; i < seed.length; i++) {
-      h = (h * 31 + seed.charCodeAt(i)) >>> 0;
+    for (let i = 0; i < str.length; i++) {
+      h = (h * 31 + str.charCodeAt(i)) >>> 0;
     }
-    const idx = h % list.length;
-    return list[idx];
+    return h >>> 0;
   }
 
-  // Sort by priority desc, then rotate among top-priority ties
+  function pickRotation(list, seedStr) {
+    if (!Array.isArray(list) || list.length === 0) return null;
+    const bucket = Math.floor(Date.now() / (10 * 60 * 1000)); // 10-min bucket
+    const h = hash32(`${seedStr}|${bucket}|${list.length}`);
+    return list[h % list.length];
+  }
+
   function pickHighestPriority(activeList, seedStr) {
     if (!Array.isArray(activeList) || activeList.length === 0) return null;
-
     const sorted = [...activeList].sort((a, b) => (b.priority || 0) - (a.priority || 0));
     const topPri = sorted[0].priority || 0;
     const top = sorted.filter(x => (x.priority || 0) === topPri);
-
     return pickRotation(top, seedStr) || top[0];
   }
 
   let chosen = null;
 
-  // 1) Film-specific sponsor override (if present + active)
+  // 1) Film-specific sponsor override
   const filmList = cfg?.filmSponsors?.[contentId];
   if (Array.isArray(filmList)) {
     const activeFilm = filmList.filter(isActive);
     chosen = pickHighestPriority(activeFilm, `film|${contentId}|${rida}`);
   }
 
-  // 2) If no film sponsor, rotate BETWEEN sponsor and house (instead of sponsor always winning)
+  // 2) Otherwise: sponsorFillPercent vs house
   if (!chosen) {
     const activeSponsors = (cfg?.sponsorAds || []).filter(isActive);
     const houseAds = cfg?.houseAds || [];
 
-    const bucket = Math.floor(Date.now() / (10 * 60 * 1000));
-    const sponsorTurn = (bucket % 2 === 0); // even bucket = sponsor, odd bucket = house
+    const fill = Number(cfg?.defaults?.sponsorFillPercent ?? 70); // 0..100
+    const roll = hash32(`fill|${contentId}|${rida}|${Math.floor(Date.now() / (10 * 60 * 1000))}`) % 100;
 
-    if (sponsorTurn && activeSponsors.length > 0) {
+    const chooseSponsor = (roll < fill);
+
+    if (chooseSponsor && activeSponsors.length > 0) {
       chosen = pickHighestPriority(activeSponsors, `sponsor|${contentId}|${rida}`);
     } else if (houseAds.length > 0) {
       chosen = pickRotation(houseAds, `house|${contentId}|${rida}`);
     } else if (activeSponsors.length > 0) {
-      // if house missing, still allow sponsor
       chosen = pickHighestPriority(activeSponsors, `sponsor|${contentId}|${rida}`);
     }
   }
 
-  // Absolute fail-open
+  // Fail-open
   if (!chosen || !chosen.url) {
-    const empty = `<?xml version="1.0" encoding="UTF-8"?>
-<VAST version="3.0"></VAST>`;
+    const empty = `<?xml version="1.0" encoding="UTF-8"?><VAST version="3.0"></VAST>`;
     return new Response(empty, {
-      headers: {
-        "Content-Type": "application/xml; charset=UTF-8",
-        "Cache-Control": "no-store"
-      }
+      headers: { "Content-Type": "application/xml; charset=UTF-8", "Cache-Control": "no-store" }
     });
   }
 
@@ -108,9 +100,7 @@ export async function onRequest(context) {
           <Linear>
             <Duration>${duration}</Duration>
             <MediaFiles>
-              <MediaFile delivery="progressive" type="video/mp4" width="1920" height="1080">
-                <![CDATA[${chosen.url}]]>
-              </MediaFile>
+              <MediaFile delivery="progressive" type="video/mp4" width="1920" height="1080"><![CDATA[${chosen.url}]]></MediaFile>
             </MediaFiles>
           </Linear>
         </Creative>
@@ -120,9 +110,6 @@ export async function onRequest(context) {
 </VAST>`;
 
   return new Response(xml, {
-    headers: {
-      "Content-Type": "application/xml; charset=UTF-8",
-      "Cache-Control": "no-store"
-    }
+    headers: { "Content-Type": "application/xml; charset=UTF-8", "Cache-Control": "no-store" }
   });
 }
