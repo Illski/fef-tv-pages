@@ -1,10 +1,9 @@
 {
   "version": 1,
   "defaults": {
-  "durationSeconds": 15,
-  "sponsorFillPercent": 70
-},
-
+    "durationSeconds": 15,
+    "sponsorFillPercent": 70
+  },
   "houseAds": [
     {
       "id": "house-1",
@@ -12,42 +11,40 @@
       "durationSeconds": 15
     }
   ],
-
   "sponsorAds": [
     {
       "id": "sponsor-1",
       "priority": 100,
       "start": "2026-01-01",
       "end": "2026-12-31",
-      "url": "https://vz-8de6b1d7-801.b-cdn.net/a87d9adf-e38f-46aa-9b3e-b7841da6ee25/play_720p.mp4",          
+      "url": "https://vz-8de6b1d7-801.b-cdn.net/a87d9adf-e38f-46aa-9b3e-b7841da6ee25/play_720p.mp4",
       "durationSeconds": 15
-    }
+    },
     {
       "id": "sponsor-2",
       "priority": 100,
       "start": "2026-01-01",
       "end": "2026-12-31",
-      "url": "https://vz-8de6b1d7-801.b-cdn.net/547e579b-a6db-42c3-98d7-b2009199ec7a/play_720p.mp4",          
+      "url": "https://vz-8de6b1d7-801.b-cdn.net/547e579b-a6db-42c3-98d7-b2009199ec7a/play_720p.mp4",
       "durationSeconds": 15
-    }
+    },
     {
       "id": "sponsor-3",
       "priority": 100,
       "start": "2026-01-01",
       "end": "2026-12-31",
-      "url": "https://vz-8de6b1d7-801.b-cdn.net/79fb77cc-a3ae-4af0-9060-2797625b1969/play_720p.mp4",          
+      "url": "https://vz-8de6b1d7-801.b-cdn.net/79fb77cc-a3ae-4af0-9060-2797625b1969/play_720p.mp4",
       "durationSeconds": 15
-    }
+    },
     {
       "id": "sponsor-4",
       "priority": 100,
       "start": "2026-01-01",
       "end": "2026-12-31",
-      "url": "https://vz-8de6b1d7-801.b-cdn.net/d4861646-a3ab-484e-8651-c31aabd2f56c/play_720p.mp4",          
+      "url": "https://vz-8de6b1d7-801.b-cdn.net/d4861646-a3ab-484e-8651-c31aabd2f56c/play_720p.mp4",
       "durationSeconds": 15
     }
   ],
-
   "filmSponsors": {
     "47b1e093-8335-45df-8e04-9d491ba4d70b": [
       {
