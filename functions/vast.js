@@ -6,6 +6,7 @@ export async function onRequest(context) {
 
   // Load config.json from your Pages site
   const configUrl = new URL("/ads/config.json", reqUrl.origin);
+
   let cfg = null;
   try {
     const cfgRes = await fetch(configUrl.toString(), {
@@ -32,9 +33,12 @@ export async function onRequest(context) {
     return h >>> 0;
   }
 
+  // ✅ Faster rotation so you SEE it during testing:
+  // Change this to 10*60*1000 later if you want “stickier” delivery.
+  const bucket = Math.floor(Date.now() / (1 * 60 * 1000)); // 1-minute bucket
+
   function pickRotation(list, seedStr) {
     if (!Array.isArray(list) || list.length === 0) return null;
-    const bucket = Math.floor(Date.now() / (10 * 60 * 1000)); // 10-min bucket
     const h = hash32(`${seedStr}|${bucket}|${list.length}`);
     return list[h % list.length];
   }
@@ -49,21 +53,22 @@ export async function onRequest(context) {
 
   let chosen = null;
 
-  // 1) Film-specific sponsor override
+  // 1) Film-specific sponsor override (wins for that film)
   const filmList = cfg?.filmSponsors?.[contentId];
   if (Array.isArray(filmList)) {
     const activeFilm = filmList.filter(isActive);
     chosen = pickHighestPriority(activeFilm, `film|${contentId}|${rida}`);
   }
 
-  // 2) Otherwise: sponsorFillPercent vs house
+  // 2) Otherwise: sponsorFillPercent vs houseAds
   if (!chosen) {
     const activeSponsors = (cfg?.sponsorAds || []).filter(isActive);
-    const houseAds = cfg?.houseAds || [];
+    const houseAds = (cfg?.houseAds || []).filter(isActive);
 
     const fill = Number(cfg?.defaults?.sponsorFillPercent ?? 70); // 0..100
-    const roll = hash32(`fill|${contentId}|${rida}|${Math.floor(Date.now() / (10 * 60 * 1000))}`) % 100;
 
+    // Deterministic “coin flip” per device+film+bucket
+    const roll = hash32(`fill|${contentId}|${rida}|${bucket}`) % 100;
     const chooseSponsor = (roll < fill);
 
     if (chooseSponsor && activeSponsors.length > 0) {
@@ -71,15 +76,21 @@ export async function onRequest(context) {
     } else if (houseAds.length > 0) {
       chosen = pickRotation(houseAds, `house|${contentId}|${rida}`);
     } else if (activeSponsors.length > 0) {
+      // fallback
       chosen = pickHighestPriority(activeSponsors, `sponsor|${contentId}|${rida}`);
     }
   }
 
-  // Fail-open
+  // Absolute fail-open (no ad)
   if (!chosen || !chosen.url) {
     const empty = `<?xml version="1.0" encoding="UTF-8"?><VAST version="3.0"></VAST>`;
     return new Response(empty, {
-      headers: { "Content-Type": "application/xml; charset=UTF-8", "Cache-Control": "no-store" }
+      headers: {
+        "Content-Type": "application/xml; charset=UTF-8",
+        "Cache-Control": "no-store, no-cache, must-revalidate, max-age=0",
+        "CDN-Cache-Control": "no-store",
+        "Pragma": "no-cache"
+      }
     });
   }
 
@@ -110,6 +121,11 @@ export async function onRequest(context) {
 </VAST>`;
 
   return new Response(xml, {
-    headers: { "Content-Type": "application/xml; charset=UTF-8", "Cache-Control": "no-store" }
+    headers: {
+      "Content-Type": "application/xml; charset=UTF-8",
+      "Cache-Control": "no-store, no-cache, must-revalidate, max-age=0",
+      "CDN-Cache-Control": "no-store",
+      "Pragma": "no-cache"
+    }
   });
 }
