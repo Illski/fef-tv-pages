@@ -17,7 +17,7 @@
           "f3c7a6bb-b213-4b82-b39a-c6b3f159b391",
           "4f877e25-ae34-4a01-87b5-a5074d910faf",
           "4db940d8-f88f-4d55-917a-a79ae9b33016",
-          "5f484287-b3f1-4da1-826f-06af97782530"
+          "63c0f6ae-8c5c-49a2-8ba2-3cc24ccf9864"
         ]
       }
     },
@@ -177,7 +177,7 @@
       ]
     },
     {
-      "id": "5f484287-b3f1-4da1-826f-06af97782530",
+      "id": "63c0f6ae-8c5c-49a2-8ba2-3cc24ccf9864",
       "title": "The Measure of a Man",
       "shortDescription": "The Measure of a Man follows a quiet, principled man whose sense of responsibility is tested as family pressures and personal expectations force him to confront what it truly means",
       "longDescription": "The Measure of a Man follows a quiet, principled man whose sense of responsibility is tested as family pressures and personal expectations force him to confront what it truly means to lead by example.",
@@ -186,12 +186,12 @@
       ],
       "runtimeSeconds": 6684,
       "releaseDate": "2026-01-01",
-      "thumbnail": "https://vz-8de6b1d7-801.b-cdn.net/5f484287-b3f1-4da1-826f-06af97782530/thumbnail_247853c6.jpg",
-      "poster": "https://vz-8de6b1d7-801.b-cdn.net/5f484287-b3f1-4da1-826f-06af97782530/thumbnail_247853c6.jpg",
-      "background": "https://vz-8de6b1d7-801.b-cdn.net/5f484287-b3f1-4da1-826f-06af97782530/thumbnail_247853c6.jpg",
+      "thumbnail": "https://vz-8de6b1d7-801.b-cdn.net/63c0f6ae-8c5c-49a2-8ba2-3cc24ccf9864/thumbnail_dc6b2fc4.jpg",
+      "poster": "https://vz-8de6b1d7-801.b-cdn.net/63c0f6ae-8c5c-49a2-8ba2-3cc24ccf9864/thumbnail_dc6b2fc4.jpg",
+      "background": "https://vz-8de6b1d7-801.b-cdn.net/63c0f6ae-8c5c-49a2-8ba2-3cc24ccf9864/thumbnail_dc6b2fc4.jpg",
       "streams": [
         {
-          "url": "https://vz-8de6b1d7-801.b-cdn.net/5f484287-b3f1-4da1-826f-06af97782530/playlist.m3u8",
+          "url": "https://vz-8de6b1d7-801.b-cdn.net/63c0f6ae-8c5c-49a2-8ba2-3cc24ccf9864/playlist.m3u8",
           "quality": "auto",
           "streamFormat": "hls"
         }
