@@ -178,7 +178,10 @@
     },
     {
       "id": "63c0f6ae-8c5c-49a2-8ba2-3cc24ccf9864",
-      "productCode": "PPV_MEASURE_OF_A_MAN01",
+      ""productCode": "PPV_MEASURE_OF_A_MAN01_SKU1",
+       "price": "10.99",
+       "originalPrice": "12.99"
+       ,
       "title": "The Measure of a Man",
       "shortDescription": "The Measure of a Man follows a quiet, principled man whose sense of responsibility is tested as family pressures and personal expectations force him to confront what it truly means",
       "longDescription": "The Measure of a Man follows a quiet, principled man whose sense of responsibility is tested as family pressures and personal expectations force him to confront what it truly means to lead by example.",
