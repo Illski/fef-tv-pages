@@ -13,7 +13,7 @@
         "ids": [
           "4097b3ee-0b95-429a-8832-0e3e67215768",
           "47b1e093-8335-45df-8e04-9d491ba4d70b",
-          "04f90b5f-01ba-4c77-9a49-7743772b4a38",
+          "6ca4643e-58f1-49f5-9820-f337c532ed9c",
           "f3c7a6bb-b213-4b82-b39a-c6b3f159b391",
           "db95bb9c-c407-4a32-a7c6-9a8a8db04b4f",
           "4db940d8-f88f-4d55-917a-a79ae9b33016",
@@ -89,7 +89,7 @@
       ]
     },
     {
-      "id": "04f90b5f-01ba-4c77-9a49-7743772b4a38",
+      "id": "6ca4643e-58f1-49f5-9820-f337c532ed9c",
       "title": "Court Comeback",
       "shortDescription": "Court Comeback is a heartfelt coming-of-age sports drama about a 12-year-old African American boy who finds hope and purpose on the basketball court after tragedy strikes his famil",
       "longDescription": "Court Comeback is a heartfelt coming-of-age sports drama about a 12-year-old African American boy who finds hope and purpose on the basketball court after tragedy strikes his family. Still grieving the loss of his mother, he struggles at home with a depressed father, leans on his older brother for guidance, and lives under the care of his aunt. At school, he’s relentlessly chased and bullied by two boys who seem determined to break his spirit. But through discipline, resilience, and a deep love for the game, he pushes forward—training harder, believing in himself, and refusing to quit. As the season builds toward a climactic tournament, he not only leads his team to victory but discovers the power of forgiveness and understanding, ultimately turning his bullies into allies. A story about grief, grit, brotherhood, and how basketball becomes the bridge from pain.",
@@ -100,12 +100,12 @@
       ],
       "runtimeSeconds": 4390,
       "releaseDate": "2026-01-01",
-      "thumbnail": "https://vz-8de6b1d7-801.b-cdn.net/04f90b5f-01ba-4c77-9a49-7743772b4a38/thumbnail_8839bc97.jpg",
-      "poster": "https://vz-8de6b1d7-801.b-cdn.net/04f90b5f-01ba-4c77-9a49-7743772b4a38/thumbnail_8839bc97.jpg",
-      "background": "https://vz-8de6b1d7-801.b-cdn.net/04f90b5f-01ba-4c77-9a49-7743772b4a38/thumbnail_8839bc97.jpg",
+      "thumbnail": "https://vz-8de6b1d7-801.b-cdn.net/6ca4643e-58f1-49f5-9820-f337c532ed9c/thumbnail.jpg",
+      "poster": "https://vz-8de6b1d7-801.b-cdn.net/6ca4643e-58f1-49f5-9820-f337c532ed9c/thumbnail.jpg",
+      "background": "https://vz-8de6b1d7-801.b-cdn.net/6ca4643e-58f1-49f5-9820-f337c532ed9c/thumbnail.jpg",
       "streams": [
         {
-          "url": "https://vz-8de6b1d7-801.b-cdn.net/04f90b5f-01ba-4c77-9a49-7743772b4a38/playlist.m3u8",
+          "url": "https://vz-8de6b1d7-801.b-cdn.net/6ca4643e-58f1-49f5-9820-f337c532ed9c/playlist.m3u8",
           "quality": "auto",
           "streamFormat": "hls"
         }
