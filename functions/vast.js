@@ -33,8 +33,7 @@ export async function onRequest(context) {
     return h >>> 0;
   }
 
-  // ✅ Faster rotation so you SEE it during testing:
-  // Change this to 10*60*1000 later if you want “stickier” delivery.
+  // Faster rotation for testing (1-min bucket)
   const bucket = Math.floor(Date.now() / (1 * 60 * 1000)); // 1-minute bucket
 
   function pickRotation(list, seedStr) {
@@ -53,7 +52,7 @@ export async function onRequest(context) {
 
   let chosen = null;
 
-  // 1) Film-specific sponsor override (wins for that film)
+  // 1) Film-specific sponsor override
   const filmList = cfg?.filmSponsors?.[contentId];
   if (Array.isArray(filmList)) {
     const activeFilm = filmList.filter(isActive);
@@ -66,8 +65,6 @@ export async function onRequest(context) {
     const houseAds = (cfg?.houseAds || []).filter(isActive);
 
     const fill = Number(cfg?.defaults?.sponsorFillPercent ?? 70); // 0..100
-
-    // Deterministic “coin flip” per device+film+bucket
     const roll = hash32(`fill|${contentId}|${rida}|${bucket}`) % 100;
     const chooseSponsor = (roll < fill);
 
@@ -76,12 +73,11 @@ export async function onRequest(context) {
     } else if (houseAds.length > 0) {
       chosen = pickRotation(houseAds, `house|${contentId}|${rida}`);
     } else if (activeSponsors.length > 0) {
-      // fallback
       chosen = pickHighestPriority(activeSponsors, `sponsor|${contentId}|${rida}`);
     }
   }
 
-  // Absolute fail-open (no ad)
+  // Fail-open (no ad)
   if (!chosen || !chosen.url) {
     const empty = `<?xml version="1.0" encoding="UTF-8"?><VAST version="3.0"></VAST>`;
     return new Response(empty, {
@@ -100,18 +96,49 @@ export async function onRequest(context) {
   const ss = String(durationSeconds % 60).padStart(2, "0");
   const duration = `${hh}:${mm}:${ss}`;
 
+  // Build tracking base URL (simple endpoint on your Pages site)
+  // You can make this a no-op handler if you want; RAF mainly wants the nodes to exist.
+  const trackBase = new URL("/ads/track", reqUrl.origin);
+
+  // Cache buster / deterministic id
+  const cb = `${Date.now()}-${bucket}-${hash32(`${contentId}|${rida}|${chosen.id || "1"}`)}`;
+
+  const qs = (event) =>
+    `${trackBase.toString()}?e=${encodeURIComponent(event)}&contentId=${encodeURIComponent(contentId)}&adId=${encodeURIComponent(chosen.id || "1")}&rida=${encodeURIComponent(rida)}&cb=${encodeURIComponent(cb)}`;
+
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <VAST version="3.0">
-  <Ad id="${chosen.id || "1"}">
+  <Ad id="${escapeXml(chosen.id || "1")}">
     <InLine>
       <AdSystem version="1.0">FlamingElephantTV</AdSystem>
-      <AdTitle>${chosen.id || "Ad"}</AdTitle>
+      <AdTitle>${escapeXml(chosen.id || "Ad")}</AdTitle>
+
+      <Error><![CDATA[${qs("error")}]]></Error>
+
+      <Impression><![CDATA[${qs("impression")}]]></Impression>
+
       <Creatives>
-        <Creative sequence="1">
+        <Creative sequence="1" id="${escapeXml(chosen.id || "1")}">
           <Linear>
             <Duration>${duration}</Duration>
+
+            <TrackingEvents>
+              <Tracking event="start"><![CDATA[${qs("start")}]]></Tracking>
+              <Tracking event="firstQuartile"><![CDATA[${qs("firstQuartile")}]]></Tracking>
+              <Tracking event="midpoint"><![CDATA[${qs("midpoint")}]]></Tracking>
+              <Tracking event="thirdQuartile"><![CDATA[${qs("thirdQuartile")}]]></Tracking>
+              <Tracking event="complete"><![CDATA[${qs("complete")}]]></Tracking>
+            </TrackingEvents>
+
             <MediaFiles>
-              <MediaFile delivery="progressive" type="video/mp4" width="1920" height="1080"><![CDATA[${chosen.url}]]></MediaFile>
+              <MediaFile
+                delivery="progressive"
+                type="video/mp4"
+                width="1920"
+                height="1080"
+                scalable="true"
+                maintainAspectRatio="true"
+              ><[CDATA[${chosen.url}]]></MediaFile>
             </MediaFiles>
           </Linear>
         </Creative>
@@ -128,4 +155,14 @@ export async function onRequest(context) {
       "Pragma": "no-cache"
     }
   });
+}
+
+// Small helper to keep XML valid
+function escapeXml(s) {
+  return String(s)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&apos;");
 }
