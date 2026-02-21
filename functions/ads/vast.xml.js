@@ -9,7 +9,7 @@ export async function onRequest(context) {
   const posSeconds = parseInt(url.searchParams.get('pos') || '0', 10);
 
   // Load config from root
-  const configMod = await import('../../config.json', { with: { type: 'json' } });
+  const configMod = await import('../../config.json', { assert: { type: 'json' } });
   const config = configMod.default || configMod;
 
   const now = new Date().toISOString().split('T')[0];
