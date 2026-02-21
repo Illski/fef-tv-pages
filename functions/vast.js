@@ -112,6 +112,11 @@ export async function onRequest(context) {
   const adId = escapeXml(chosen.id || "ad");
   const adTitle = escapeXml(chosen.id || "Ad");
   const mp4Url = String(chosen.mp4 || chosen.url).trim();
+  if (mp4Url.includes(".m3u8")) {
+  return new Response(`<?xml version="1.0" encoding="UTF-8"?><VAST version="3.0"></VAST>`, {
+    headers: { "Content-Type": "application/xml; charset=UTF-8" }
+  });
+}
 
   // ✅ MINIMAL VAST (NO tracking tags) — prevents Roku RAF crashes/skips
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
