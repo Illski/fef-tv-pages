@@ -138,7 +138,7 @@ export async function onRequest(context) {
                 height="1080"
                 scalable="true"
                 maintainAspectRatio="true"
-              ><[CDATA[${chosen.url}]]></MediaFile>
+              ><![CDATA[${chosen.url}]]></MediaFile>
             </MediaFiles>
           </Linear>
         </Creative>
