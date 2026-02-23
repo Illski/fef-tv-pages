@@ -3,7 +3,7 @@
   "version": 1,
   "defaults": {
     "durationSeconds": 15,
-    "sponsorFillPercent": 10
+    "sponsorFillPercent": 70
   },
   "houseAds": [
     {
