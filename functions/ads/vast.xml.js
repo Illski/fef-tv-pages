@@ -21,8 +21,13 @@ export async function onRequest(context) {
 
   let selectedAd = null;
 
-  // 1. Per-film sponsor (highest priority)
-  if (config.filmSponsors && config.filmSponsors[contentId]) {
+    // 1. Per-film sponsor (ONLY for preroll)
+  if (
+    !selectedAd &&
+    breakType === 'preroll' &&
+    config.filmSponsors &&
+    config.filmSponsors[contentId]
+  ) {
     const filmAds = config.filmSponsors[contentId].filter(isActive);
     if (filmAds.length > 0) {
       selectedAd = filmAds.sort((a, b) => (b.priority || 0) - (a.priority || 0))[0];
