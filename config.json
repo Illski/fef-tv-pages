@@ -92,13 +92,13 @@
     }
   ],
   "filmSponsors": {
-    "47b1e093-8335-45df-8e04-9d491ba4d70b": [
+    "f00cbb37-cf5b-44b3-9368-ac9e1254c8cd": [
       {
-        "id": "merry-mayhem-sponsor",
+        "id": "the-measure-of-a-man-sponsor",
         "priority": 200,
         "start": "2026-01-01",
         "end": "2026-12-31",
-        "url": "https://vz-8de6b1d7-801.b-cdn.net/547e579b-a6db-42c3-98d7-b2009199ec7a/play_720p.mp4",
+        "url": "https://vz-8de6b1d7-801.b-cdn.net/99eafae7-a71b-4dd2-9884-15d16fad8b05/play_720p.mp4",
         "durationSeconds": 15
       }
     ]
