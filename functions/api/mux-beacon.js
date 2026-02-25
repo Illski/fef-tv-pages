@@ -1,38 +1,30 @@
 export async function onRequest(context) {
   const { request } = context;
 
-  // Signature + CORS for EVERY response
-  const headers = {
+  const headersBase = {
     "Access-Control-Allow-Origin": "*",
     "Access-Control-Allow-Methods": "POST, OPTIONS",
     "Access-Control-Allow-Headers": "Content-Type",
-    "X-FEF-Func": "mux-beacon",
-    "Content-Type": "application/json",
+    "X-FEF-Signature": "mux-beacon-v1" // <-- signature header (temporary)
   };
 
-  // Preflight
+  // CORS preflight
   if (request.method === "OPTIONS") {
-    return new Response(null, { status: 204, headers });
+    return new Response(null, { status: 204, headers: headersBase });
   }
 
-  // Only POST
+  // Only allow POST
   if (request.method !== "POST") {
-    return new Response(JSON.stringify({ ok: false, reason: "Method Not Allowed", method: request.method }), {
-      status: 405,
-      headers,
-    });
+    return new Response("Method Not Allowed", { status: 405, headers: headersBase });
   }
 
-  // Read JSON
+  // Read the JSON body
   try {
     await request.json();
   } catch (e) {
-    return new Response(JSON.stringify({ ok: false, reason: "Bad JSON" }), {
-      status: 400,
-      headers,
-    });
+    return new Response("Bad JSON", { status: 400, headers: headersBase });
   }
 
-  // TEMP: succeed so Flutter stops failing
-  return new Response(null, { status: 204, headers });
+  // TEMP: success immediately
+  return new Response(null, { status: 204, headers: headersBase });
 }
