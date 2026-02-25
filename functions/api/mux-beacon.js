@@ -1,38 +1,38 @@
 export async function onRequest(context) {
   const { request } = context;
 
-  // CORS preflight
+  // Signature + CORS for EVERY response
+  const headers = {
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Methods": "POST, OPTIONS",
+    "Access-Control-Allow-Headers": "Content-Type",
+    "X-FEF-Func": "mux-beacon",
+    "Content-Type": "application/json",
+  };
+
+  // Preflight
   if (request.method === "OPTIONS") {
-    return new Response(null, {
-      status: 204,
-      headers: {
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Methods": "POST, OPTIONS",
-        "Access-Control-Allow-Headers": "Content-Type",
-      },
+    return new Response(null, { status: 204, headers });
+  }
+
+  // Only POST
+  if (request.method !== "POST") {
+    return new Response(JSON.stringify({ ok: false, reason: "Method Not Allowed", method: request.method }), {
+      status: 405,
+      headers,
     });
   }
 
-  // Only allow POST (this stops 405 issues)
-  if (request.method !== "POST") {
-    return new Response("Method Not Allowed", { status: 405 });
-  }
-
-  // Read the JSON body (so we know we received it)
-  let payload = null;
+  // Read JSON
   try {
-    payload = await request.json();
+    await request.json();
   } catch (e) {
-    return new Response("Bad JSON", { status: 400 });
+    return new Response(JSON.stringify({ ok: false, reason: "Bad JSON" }), {
+      status: 400,
+      headers,
+    });
   }
 
-  // TEMP: return success immediately so your Flutter app stops failing.
-  // (We can add forwarding to Mux after this is stable.)
-  return new Response(null, {
-    status: 204,
-    headers: {
-      "Access-Control-Allow-Origin": "*",
-      "Content-Type": "application/json",
-    },
-  });
+  // TEMP: succeed so Flutter stops failing
+  return new Response(null, { status: 204, headers });
 }
