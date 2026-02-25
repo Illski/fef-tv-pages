@@ -28,3 +28,11 @@ export async function onRequest(context) {
   // TEMP: success immediately
   return new Response(null, { status: 204, headers: headersBase });
 }
+return new Response(JSON.stringify({ ok: true, sig: "mux-beacon-v2" }), {
+  status: 204,
+  headers: {
+    "Access-Control-Allow-Origin": "*",
+    "Content-Type": "application/json",
+    "X-FEF-Signature": "mux-beacon-v2"
+  },
+});
