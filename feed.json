@@ -185,11 +185,7 @@
     },
     {
       "id": "f00cbb37-cf5b-44b3-9368-ac9e1254c8cd",
-      "productCode": "PPV_VIDEO_GENERIC1_SKU1",
-      "amazonSku": "ppv_the_measure_of_a_man",
-       "price": "10.99",
-       "originalPrice": "12.99",
-      "title": "The Measure of a Man",
+           "title": "The Measure of a Man",
       "shortDescription": "The Measure of a Man follows a quiet, principled man whose sense of responsibility is tested as family pressures and personal expectations force him to confront what it truly means",
       "longDescription": "The Measure of a Man follows a quiet, principled man whose sense of responsibility is tested as family pressures and personal expectations force him to confront what it truly means to lead by example.",
       "genres": [
